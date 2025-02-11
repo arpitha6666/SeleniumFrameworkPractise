@@ -30,6 +30,12 @@ public class AbstractComponent {
 
     }
 
+    public void waitForVisibilityWebElement(WebElement locator) {
+        WebDriverWait eWait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        eWait.until(ExpectedConditions.visibilityOf(locator));
+
+    }
+
     public void waitForInVisibilityOfElement(WebElement locator) {
         WebDriverWait eWait = new WebDriverWait(driver, Duration.ofSeconds(5));
         eWait.until(ExpectedConditions.invisibilityOf(locator));
