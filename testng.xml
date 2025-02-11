@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <test verbose="2" preserve-order="true" name="E:/MyProjects/SeleniumFrameworkPractise">
+        <classes>
+            <class name="testComponents.standalone.PageObjectTest">
+                <methods>
+                    <include name="testLoginPage"/>
+                </methods>
+            </class>
+            <class name="testComponents.tests.ErrorValidationsTest">
+                <methods>
+                    <include name="errorValTest"/>
+                </methods>
+            </class>
+            <class name="testComponents.tests.SubmitOrderTest">
+                <methods>
+                    <include name="submitOrderTest"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
