@@ -1,4 +1,4 @@
-package testComponents.tests;
+package testComponents;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;

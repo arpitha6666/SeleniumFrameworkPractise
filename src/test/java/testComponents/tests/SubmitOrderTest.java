@@ -4,12 +4,13 @@ import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import pageobjects.*;
+import testComponents.BaseTest;
 
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 
-public class SubmitOrderTest extends BaseTest{
+public class SubmitOrderTest extends BaseTest {
     String filePath ="/src/test/java/data/PurchaseData.json";
 
     @Test(dataProvider = "getMapForPurchaseFromJson", groups ="Purchase")

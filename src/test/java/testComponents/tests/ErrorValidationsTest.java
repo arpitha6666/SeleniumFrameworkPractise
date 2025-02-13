@@ -3,10 +3,11 @@ package testComponents.tests;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pageobjects.ProductCatalogue;
+import testComponents.BaseTest;
 
 import java.io.IOException;
 
-public class ErrorValidationsTest extends BaseTest{
+public class ErrorValidationsTest extends BaseTest {
     @Test(groups = {"ErrorHandling"})
     public void errorValTest() throws IOException {
         String username = "ars1123@gmail.com";
