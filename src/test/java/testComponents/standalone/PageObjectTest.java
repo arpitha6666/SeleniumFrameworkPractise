@@ -31,7 +31,7 @@ public class PageObjectTest {
         pc.getProductList().stream().forEach(s-> System.out.println(s.getText()));
         System.out.println(pc.getProductByName(searchByprd).getText());
         pc.addProductToCart(searchByprd);
-        CartPage ca = pc.gotToCartPage();
+        CartPage ca = pc.goToCartPage();
 
         Assert.assertTrue(ca.verifyProductDisplay(searchByprd));
         CheckoutPage cp = ca.gotToCheckout();

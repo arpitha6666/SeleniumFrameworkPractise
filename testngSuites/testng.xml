@@ -1,18 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="All Test Suite">
-    <test verbose="2" preserve-order="true" name="E:/MyProjects/SeleniumFrameworkPractise">
-        <classes>
-            <class name="testComponents.standalone.PageObjectTest">
-                <methods>
-                    <include name="testLoginPage"/>
-                </methods>
-            </class>
+<suite parallel = "tests" name="All Test Suite">
+    <test thread-count="2" verbose="2" preserve-order="true" name="Login page error validations test">
+    <classes>
             <class name="testComponents.tests.ErrorValidationsTest">
                 <methods>
                     <include name="errorValTest"/>
                 </methods>
             </class>
+    </classes>
+    </test>
+    <test thread-count="2" verbose="2" preserve-order="true" name="Submit Order test">
+        <classes>
             <class name="testComponents.tests.SubmitOrderTest">
                 <methods>
                     <include name="submitOrderTest"/>

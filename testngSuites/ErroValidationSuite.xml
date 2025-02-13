@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+   <groups>
+       <run>
+           <include name="ErrorHandling"/>
+       </run>
+   </groups>
+    <test thread-count="2" verbose="2" preserve-order="true" name="Login page error validations test">
+        <classes>
+            <class name="testComponents.tests.ErrorValidationsTest">
+            </class>
+        </classes>
+    </test>
+    <test thread-count="2" verbose="2" preserve-order="true" name="Submit Order test">
+        <classes>
+            <class name="testComponents.tests.SubmitOrderTest">
+            </class>
+        </classes>
+    </test>
+</suite>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

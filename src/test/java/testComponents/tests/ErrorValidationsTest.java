@@ -7,7 +7,7 @@ import pageobjects.ProductCatalogue;
 import java.io.IOException;
 
 public class ErrorValidationsTest extends BaseTest{
-    @Test
+    @Test(groups = {"ErrorHandling"})
     public void errorValTest() throws IOException {
         String username = "ars1123@gmail.com";
         String password = "Arsars123";
