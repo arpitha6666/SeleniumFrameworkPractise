@@ -18,11 +18,11 @@ public class CheckoutPage extends AbstractComponent {
     }
 
     @FindBy(css = "[placeholder='Select Country']")
-    WebElement countryEle;
+    private WebElement countryEle;
     @FindBy(xpath = "(//button[contains(@class,'ta-item')])[2]")
-    WebElement selectCountry;
+    private WebElement selectCountry;
     @FindBy(css = ".action__submit")
-    WebElement submitBtn;
+    private WebElement submitBtn;
 
 
     By listOfCountries = By.cssSelector(".ta-results");

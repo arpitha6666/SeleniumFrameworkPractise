@@ -4,11 +4,12 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import pageobjects.ProductCatalogue;
 import testComponents.BaseTest;
+import testComponents.Retry;
 
 import java.io.IOException;
 
 public class ErrorValidationsTest extends BaseTest {
-    @Test(groups = {"ErrorHandling"})
+    @Test(groups = {"ErrorHandling"}, retryAnalyzer = Retry.class)
     public void errorValTest() throws IOException {
         String username = "ars1123@gmail.com";
         String password = "Arsars123";
@@ -16,6 +17,6 @@ public class ErrorValidationsTest extends BaseTest {
 
         //Login page actions
         ProductCatalogue pc = landingPage.loginApplication(username,password);
-        Assert.assertEquals(landingPage.getErrorMsg(),"Incorrect email or password.");
+        Assert.assertEquals(landingPage.getErrorMsg(),"Incorrect email  password.");
     }
 }

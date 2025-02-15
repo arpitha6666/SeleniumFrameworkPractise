@@ -4,8 +4,12 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.Dimension;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import pageobjects.LandingPage;
@@ -32,13 +36,20 @@ public class BaseTest {
 
         fis = new FileInputStream(System.getProperty("user.dir")+"//src//main//java//resources//GlobalConfig.properties");
         prop.load(fis);
-        String browser =prop.getProperty("browser");
 
-        if(browser.equalsIgnoreCase("firefox")) {
+        String browserName =System.getProperty("browser")!=null? System.getProperty("browser") :prop.getProperty("browser");
+
+        if(browserName.contains("firefox")) {
+            FirefoxOptions options = new FirefoxOptions();
+
+            if(browserName.contains("headless")){
+                options.addArguments("headless");
+            }
             manager.firefoxdriver().setup();
-            driver = new FirefoxDriver();
+            driver = new FirefoxDriver(options);
+            driver.manage().window().setSize(new Dimension(1440,900)); // run on full screen mode
 
-        }else if(browser.equalsIgnoreCase("chrome")){
+        }else if(browserName.contains("chrome")){
         }
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         driver.manage().window().maximize();
@@ -53,6 +64,14 @@ public class BaseTest {
         List<HashMap<String,String>> data = mapper.readValue(jsonContent, new TypeReference<List<HashMap<String,String>>>() {
         });
         return data;
+    }
+
+    public String getScreenshot(String testcaseName, WebDriver driver) throws IOException {
+        String reportPath = System.getProperty("user.dir")+"//report//"+testcaseName+".png";
+        TakesScreenshot src = (TakesScreenshot) driver;
+        File file =src.getScreenshotAs(OutputType.FILE);
+        FileUtils.copyFile(file,new File(reportPath));
+        return reportPath;
     }
 
     @BeforeMethod(alwaysRun = true)
